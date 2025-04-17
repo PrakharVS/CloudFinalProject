@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    fetch('/check-auth')
+      .then(res => res.json())
+      .then(data => {
+        if (data.loggedIn) {
+          window.location.href = '/chat.html';
+        } else {
+          window.location.href = '/auth.html';
+        }
+      })
+      .catch(() => window.location.href = '/auth.html');
+  </script>
+</head>
+<body>
+  <p>Checking authentication...</p>
+</body>
+</html>
